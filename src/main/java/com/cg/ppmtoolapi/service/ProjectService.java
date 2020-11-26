@@ -27,5 +27,8 @@ public Project saveOrUpdate(Project project) {
 			throw new ProjectIDException("ProjectIdentifier " + projectIdentifier + " not available");
 		}
 		return project;
+	}
+		public Iterable<Project> findAllProjects(){
+			return projectRepository.findAll();
 }
 }
