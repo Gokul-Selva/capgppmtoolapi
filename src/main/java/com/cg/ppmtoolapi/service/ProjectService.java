@@ -30,5 +30,13 @@ public Project saveOrUpdate(Project project) {
 	}
 		public Iterable<Project> findAllProjects(){
 			return projectRepository.findAll();
+		}
+
+		public void deleteProjectByProjectIdentifier(String projectIdentifier) {
+			Project project=findProjectByProjectIdentifier(projectIdentifier.toUpperCase());
+			if(project==null) {
+				throw new ProjectIDException("ProjectIdentifier " + projectIdentifier + " not available");
+			}
+			projectRepository.delete(project);
 }
 }
