@@ -1,6 +1,8 @@
 package com.cg.ppmtoolapi.domain;
 
 import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrePersist;
 import javax.persistence.GeneratedValue;
@@ -28,6 +30,7 @@ private Long id;
 private String projectName;
 @NotBlank(message="ProjectIdentifier is required")
 @Size(min=4, max=5, message="Size must be between 4 to 5")
+@Column(unique=true,updatable=false)
 private String projectIdentifier;
 @NotBlank(message="Description is required")
 private String description;
