@@ -21,4 +21,11 @@ public Project saveOrUpdate(Project project) {
 		throw new ProjectIDException("ProjectIdentifier "+project.getProjectIdentifier()+" already available");
 	}
 }
+	public Project findProjectByProjectIdentifier(String projectIdentifier) {
+		Project project = projectRepository.findByProjectIdentifier(projectIdentifier.toUpperCase());
+		if (project == null) {
+			throw new ProjectIDException("ProjectIdentifier " + projectIdentifier + " not available");
+		}
+		return project;
+}
 }
